@@ -1,0 +1,23 @@
+
+
+services:
+  # Disable resource-heavy monitoring services
+  elasticsearch:
+    profiles:
+      - monitoring
+  
+  logstash:
+    profiles:
+      - monitoring
+  
+  kibana:
+    profiles:
+      - monitoring
+  
+  prometheus:
+    profiles:
+      - monitoring
+  
+  grafana:
+    profiles:
+      - monitoring
