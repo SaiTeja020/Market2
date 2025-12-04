@@ -25,7 +25,18 @@ const io = socketIO(server, {
 
 // Middleware
 app.use(helmet());
-app.use(cors());
+// Allow Private Network Access
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Private-Network', 'true');
+  next();
+});
+
+app.use(cors({
+  origin: ['https://crispy-waffle-g46pvg5q44pwc95xg-3000.app.github.dev', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Private-Network'],
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
@@ -41,7 +52,7 @@ connectRedis();
 // Socket.IO
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);
-  
+
   socket.on('disconnect', () => {
     console.log('Client disconnected:', socket.id);
   });
@@ -52,7 +63,7 @@ app.set('io', io);
 
 // Routes
 app.get('/', (req, res) => {
-  res.json({ 
+  res.json({
     message: 'MarketHub API',
     version: '1.0.0',
     status: 'active'
@@ -66,7 +77,7 @@ app.use('/api/analytics', analyticsRoutes);
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ 
+  res.status(500).json({
     message: 'Something went wrong!',
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
