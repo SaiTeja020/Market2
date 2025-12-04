@@ -37,18 +37,18 @@ const Dashboard = () => {
     );
   }
 
-  const chartData = (products && products.length > 0) 
+  const chartData = (products && products.length > 0)
     ? products.slice(0, 5).map(p => ({
-        name: p.name ? p.name.substring(0, 15) : 'Unknown',
-        price: p.currentPrice || 0
-      }))
+      name: p.name ? p.name.substring(0, 15) : 'Unknown',
+      price: p.currentPrice || 0
+    }))
     : [];
 
   const alertProducts = products.filter(p => p.targetPrice && p.currentPrice <= p.targetPrice);
 
   return (
     <Container fluid>
-      <h2 className="mb-4 text-white">Dashboard Overview</h2>
+      <h2 className="mb-4 text-dark">Dashboard Overview</h2>
 
       <Row className="mb-4">
         <Col md={3}>
@@ -91,7 +91,7 @@ const Dashboard = () => {
                   <div key={product._id} className="alert alert-success mb-3" role="alert">
                     <h5 className="alert-heading">🎉 {product.name}</h5>
                     <p className="mb-2">
-                      <strong>Current Price:</strong> ₹{product.currentPrice} | 
+                      <strong>Current Price:</strong> ₹{product.currentPrice} |
                       <strong> Your Target:</strong> ₹{product.targetPrice}
                     </p>
                     <hr />

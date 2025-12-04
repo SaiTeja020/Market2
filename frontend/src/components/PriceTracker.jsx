@@ -32,7 +32,7 @@ const PriceTracker = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Auto-select currency based on platform
     if (name === 'platform') {
       let currency = 'INR';
@@ -49,10 +49,10 @@ const PriceTracker = () => {
 
   const handleAddProduct = async (e) => {
     e.preventDefault();
-    
+
     // Validate prices before sending
-    if (newProduct.targetPrice && newProduct.currentPrice && 
-        parseFloat(newProduct.targetPrice) >= parseFloat(newProduct.currentPrice)) {
+    if (newProduct.targetPrice && newProduct.currentPrice &&
+      parseFloat(newProduct.targetPrice) >= parseFloat(newProduct.currentPrice)) {
       const currencySymbol = newProduct.currency === 'USD' ? '$' : '₹';
       alert(`Target price (${currencySymbol}${newProduct.targetPrice}) must be lower than current price (${currencySymbol}${newProduct.currentPrice}).`);
       return;
@@ -61,9 +61,9 @@ const PriceTracker = () => {
     try {
       await productsAPI.create(newProduct);
       setShowModal(false);
-      setNewProduct({ 
-        name: '', 
-        url: '', 
+      setNewProduct({
+        name: '',
+        url: '',
         platform: 'Amazon',
         currency: 'INR',
         currentPrice: '',
@@ -94,7 +94,7 @@ const PriceTracker = () => {
       <Row className="mb-4">
         <Col>
           <div className="d-flex justify-content-between align-items-center">
-            <h2 className="text-white">Price Tracker</h2>
+            <h2 className="text-dark">Price Tracker</h2>
             <Button variant="primary" onClick={() => setShowModal(true)}>
               + Add Product
             </Button>
@@ -147,11 +147,11 @@ const PriceTracker = () => {
                         </td>
                         <td>
                           <small className="text-muted">
-                            {product.specifications ? 
-                              (product.specifications.length > 50 ? 
-                                product.specifications.substring(0, 50) + '...' : 
+                            {product.specifications ?
+                              (product.specifications.length > 50 ?
+                                product.specifications.substring(0, 50) + '...' :
                                 product.specifications
-                              ) : 
+                              ) :
                               'N/A'
                             }
                           </small>
@@ -329,7 +329,7 @@ const PriceTracker = () => {
             <div>
               <h5>{selectedProduct.name}</h5>
               <hr />
-              
+
               <Row className="mb-3">
                 <Col md={6}>
                   <strong>Platform:</strong>

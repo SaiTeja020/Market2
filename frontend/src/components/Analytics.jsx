@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import { analyticsAPI } from '../services/api';
-import { 
-  LineChart, Line, BarChart, Bar, XAxis, YAxis, 
-  CartesianGrid, Tooltip, Legend, ResponsiveContainer 
+import {
+  LineChart, Line, BarChart, Bar, XAxis, YAxis,
+  CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 const Analytics = () => {
@@ -40,7 +40,7 @@ const Analytics = () => {
 
   return (
     <Container fluid>
-      <h2 className="mb-4 text-white">Analytics Dashboard</h2>
+      <h2 className="mb-4 text-dark">Analytics Dashboard</h2>
 
       <Row className="mb-4">
         <Col md={12}>
@@ -54,24 +54,24 @@ const Analytics = () => {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="avgPrice" 
-                    stroke="#667eea" 
+                  <Line
+                    type="monotone"
+                    dataKey="avgPrice"
+                    stroke="#667eea"
                     strokeWidth={2}
                     name="Average Price"
                   />
-                  <Line 
-                    type="monotone" 
-                    dataKey="minPrice" 
-                    stroke="#48bb78" 
+                  <Line
+                    type="monotone"
+                    dataKey="minPrice"
+                    stroke="#48bb78"
                     strokeWidth={2}
                     name="Minimum Price"
                   />
-                  <Line 
-                    type="monotone" 
-                    dataKey="maxPrice" 
-                    stroke="#f56565" 
+                  <Line
+                    type="monotone"
+                    dataKey="maxPrice"
+                    stroke="#f56565"
                     strokeWidth={2}
                     name="Maximum Price"
                   />
