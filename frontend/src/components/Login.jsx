@@ -21,10 +21,10 @@ const Login = ({ setAuth }) => {
     setLoading(true);
 
     try {
-      const response = isLogin 
+      const response = isLogin
         ? await authAPI.login({ email: formData.email, password: formData.password })
         : await authAPI.register(formData);
-      
+
       setToken(response.data.token);
       setAuth(true);
       navigate('/');
@@ -36,10 +36,10 @@ const Login = ({ setAuth }) => {
   };
 
   return (
-    <Container fluid className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+    <Container fluid className="d-flex align-items-center justify-content-center login-page" style={{ minHeight: '100vh' }}>
       <Row className="w-100">
         <Col md={6} lg={4} className="mx-auto">
-          <Card className="shadow-lg">
+          <Card className="shadow-lg login-card">
             <Card.Body className="p-5">
               <div className="text-center mb-4">
                 <h2 className="fw-bold text-primary">📊 MarketHub</h2>
@@ -87,18 +87,18 @@ const Login = ({ setAuth }) => {
                   />
                 </Form.Group>
 
-                <Button 
-                  variant="primary" 
-                  type="submit" 
-                  className="w-100 mb-3"
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="w-100 mb-3 login-btn"
                   disabled={loading}
                 >
                   {loading ? 'Please wait...' : (isLogin ? 'Login' : 'Register')}
                 </Button>
 
                 <div className="text-center">
-                  <Button 
-                    variant="link" 
+                  <Button
+                    variant="link"
                     onClick={() => {
                       setIsLogin(!isLogin);
                       setError('');
