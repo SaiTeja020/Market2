@@ -5,9 +5,10 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
+  letter-spacing: 0.01em;
 }
 
 .App {
@@ -16,53 +17,93 @@ body {
 
 .container-fluid {
   padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .card {
   border: none;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .stat-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
   margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .stat-icon {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  filter: grayscale(0.2);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
   border: none;
-  border-radius: 25px;
-  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  padding: 0.65rem 1.8rem;
   transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(43, 108, 176, 0.25);
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(43, 108, 176, 0.35);
+  background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
 }
 
 .table {
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.table thead {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table tbody tr:hover {
+  background-color: #f8fafc;
 }
 
 .badge {
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.text-white {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
